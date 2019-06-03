@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "ReklamVer";
+    Layout = "~/Views/Kullanici/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Konular</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Konu Ekle</span></li>
+        </ol>
+    </div>
+</div>
+
+<input type="hidden" id="sessiondeger" value="@ViewData["deneeme"]" />
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example" ng-app="BlogAdList">
+            <div class="form-group" ng-controller="blogAdList">
+                @Html.Label("", "Blog Seç", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select name="KonuAdi" id="comboBlogList" class="form-control">
+
+                        <option ng-repeat="x in blog" value="{{x.Id}}">{{x.Baslik}}</option>
+                    </select>
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Tarife", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select name="comboTarifeList" id="comboTarifeList" class="form-control">
+
+                        <option  value="10">Haftalık, 10₺</option>
+                        <option  value="20">Aylık, 20₺</option>
+                    </select>
+                </div>
+            </div><br />
+
+        
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <button class="btn btn-success pull-right" id="btnReklamVer">Reklam Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

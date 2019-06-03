@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewData["Title"] = "Kullanıcı Kayıt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Kullanıcı Kayıt</title>
+<header class="short-header">
+
+
+    <div class="row header-content">
+
+        <div class="logo">
+            <a href="/Home/Index">Author</a>
+        </div>
+
+        <nav id="main-nav-wrap">
+            <ul class="main-navigation sf-menu">
+                <li class=""><a href="/Home/Index" title="">Anasayfa</a></li>
+                <li class=""><a href="/Home/Kategoriler" title="">Kategoriler</a></li>
+                @if (ViewData["kullaniciLogin"] == null)
+                {
+                    <li class="current"><a href="/Home/KullaniciKayit" title="">Kayıt</a></li>
+                    <li>
+                        <a style="cursor:default" title="" data-toggle="modal" data-target="#exampleModalCenter">Giriş Yap</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="has-children">
+                        <a style="cursor:default" title="">@ViewData["kullaniciLogin"]</a>
+                        <ul class="sub-menu">
+                            <li><a href="/Kullanici/BlogPaylasimlar">Hesaba Git</a></li>
+                            <li><a href="#" id="aCikis" style="cursor:default">Çıkış Yap</a></li>
+
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </nav> <!-- end main-nav-wrap -->
+
+     
+
+    </div>
+
+</header> <!-- end header -->
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example ">
+            @Html.Partial("_ModalGirisYap")
+
+            <div class="form-group col-md-8 col-md-offset-2">
+                <img src="" class="img-circle" width="128" height="128" />
+                <br /><br />
+                <input type="file" name="ProfileImage" id="aResim" asp-for="Image" class="form-control" /><br />
+                <span><i>Lütfen jpg,jpeg ya da png formatı kullanın.</i></span>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.Label("", "Ad", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                    <input type="text" name="Adi" id="aAdi" class="form-control" placeholder="Ad" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.Label("", "Soyad", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                    <input type="text" name="Soyadi" id="aSoyadi" class="form-control" placeholder="Soyad" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.Label("", "E-Posta", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                    <input type="text" name="Emaili" id="aEmaili" class="form-control" placeholder="E-Posta" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.Label("", "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                    <input type="text" name="Telefonu" id="aTelefonu" class="form-control" placeholder="Telefon" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.Label("", "Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                    <input type="text" name="KullaniciAdi" id="aKullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.Label("", "Şifre", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                    <input type="text" name="Sifre" id="aSifre" class="form-control" placeholder="Şifre" />
+
+                </div>
+            </div><br />
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.Label("", "Biyografi", htmlAttributes: new { @class = "control-label col-md-2" })<br />
+                    <textarea name="Biyografi" id="aBiyografis" class="form-control" placeholder="Biyografi">
+
+                    </textarea>
+
+                </div>
+            </div><br />
+
+
+
+            <div class="form-group">
+                <div class=" col-md-8 col-md-offset-2" style="margin-top:20px;">
+                    <button class="btn btn-success pull-right" id="btnKullaniciKayit">Kayıt Ol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kullanıcı Admin</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="favicon_16.ico" />
+    <link rel="bookmark" href="favicon_16.ico" />
+    <link href="~/Belgeler/Back/dist/css/site.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="~/Belgeler/Back/dist/js/site.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+</head>
+<body>
+
+    <nav role="navigation" class="navbar navbar-custom">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button data-target="#bs-content-row-navbar-collapse-5" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Kullanıcı Admin</a>
+            </div>
+
+            <div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a id="btCikisYap">Çıkış Yap</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row row-offcanvas row-offcanvas-left">
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
+                <ul class="list-group panel">
+                    <li class="list-group-item"><i class="glyphicon glyphicon-align-justify"></i> <b>Menü</b></li>
+                    <li class="list-group-item"><a href="/Kullanici/BlogPaylasimlar"><i class="glyphicon glyphicon-home"></i>Blog Paylaşımları </a></li>
+                    <li class="list-group-item"><a href="/Kullanici/BlogPaylasimlarEkle"><i class="glyphicon glyphicon-certificate"></i>Blog Paylaşımı Ekle </a></li>
+                    <li class="list-group-item"><a href="/Kullanici/OdemeAl"><i class="glyphicon glyphicon-th-list"></i>Ödeme Al </a></li>
+                    <li class="list-group-item"><a href="/Kullanici/YapilanBagis"><i class="glyphicon glyphicon-th-list"></i>Yapılan Bağışlar </a></li>
+                    <li class="list-group-item"><a href="/Kullanici/ReklamVer"><i class="glyphicon glyphicon-th-list"></i>Reklam Ver </a></li>
+                    <li>
+                        <a href="#demo4" class="list-group-item " data-toggle="collapse">Genel  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <li class="collapse" id="demo4">
+                        <a href="/Kullanici/GenelBilgi" class="list-group-item">Bilgi</a>
+                        <a href="/Kullanici/GenelBakiye" class="list-group-item">Bakiye</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-9 content">
+                <div class="panel panel-default">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciCikisYap.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciPaylasilanMakalelerList.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciPaylasilanMakaleSil.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciPaylasilanMakalelerDuzenle.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciPaylasilanMakaleGuncelle.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciPaylasilanMakalelerKonular.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciPaylasilanMakalelerEkle.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/KullaniciOdemeAl2.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/BagisYapilanMakale.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/CoinGenelBilgi.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/OdemeAlCoin.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/GenelBilgi.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/GenelBilgiGuncelle1.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/GenelBakiye.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/BlogAdList2.js"></script>
+<script src="~/Belgeler/Back/build/KullaniciBack/ReklamVer.js"></script>

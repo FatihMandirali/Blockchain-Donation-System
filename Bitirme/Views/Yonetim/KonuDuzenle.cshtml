@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "KonuDuzenle";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Personeller</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Personel Düzenle</span></li>
+        </ol>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="content-row" ng-app="KonuDuzenle">
+        <div class="bs-example" ng-controller="konuDuzenle">
+
+            <div class="form-group">
+                <img src="~/Belgeler/Image/{{konu.Resim}}" class="img-circle" width="300" height="300" />
+                <br /><br />
+                <input type="file" name="ProfileImage" id="Resim" asp-for="Image" class="form-control" /><br />
+                <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                <span><i>Lütfen jpg,jpeg ya da png formatı kullanın.</i></span>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("", "Konu Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{konu.KonuAdi}}" name="KonuAdi" id="KonuAdi" class="form-control" placeholder="Konu Adı" />
+
+                </div>
+            </div><br />
+            @*<div class="form-group">
+                @Html.Label("", "Resim", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{konu.Resim}}" name="Resim" id="Resim" class="form-control" placeholder="Resim" />
+                </div>
+            </div><br />*@
+            <div class="form-group">
+                @Html.Label("", "Konu Hakkında", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{konu.Hakkinda}}" name="Hakkinda" id="Hakkinda" class="form-control" placeholder="Hakkında" />
+
+                </div>
+            </div><br />
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <a href="/Yonetim/Personeller" class="btn btn-info pull-right" style="margin-left:10px">Personeller Listesi</a>
+                    <button class="btn btn-success pull-right" name="{{konu.Id}}" id="btnKonuDuzenle">Konu Düzenle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+﻿<div class="row">
+    <div class=" col-md-12">
+        <div class="grid-sizer"></div>
+
+        
+            <div class="entry-content">
+                <div id="featured-post-slider" class="flexslider" ng-controller="Reklamlar">
+                    <ul class="slides" >
+
+                        <li ng-repeat="x in reklam">
+                            <div class="featured-post-slide">
+
+                                <div class="post-background" style="background-image:url('/Belgeler/Image/{{x.Resim}}');"></div>
+
+                                <div class="overlay"></div>
+
+                                <div class="post-content">
+                                    <ul class="entry-meta">
+                                        <li>{{x.Tarih}}</li>
+                                        <li><a href="#">{{x.AdSoyad}}</a></li>
+                                    </ul>
+
+                                    <h1 class="slide-title"><a href="/Home/BlogDetay/{{x.Slug}}" title="">{{x.Baslik}}</a></h1>
+                                </div>
+
+                            </div>
+                        </li> <!-- /slide -->
+
+
+                    </ul> <!-- end slides -->
+                    <!--<ul class="flex-direction-nav">
+                         <li class="flex-nav-prev">
+                             <a class="flex-prev" href="#">Previous</a>
+                         </li>
+                         <li class="flex-nav-next">
+                             <a class="flex-next" href="#">Next</a>
+                         </li>
+                     </ul>-->
+                </div> <!-- end featured-post-slider -->
+            </div> <!-- end entry content -->
+        
+    </div>
+</div><br />

@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Özel Kategoriler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Özel Kategoriler</title>
+<header class="short-header">
+
+
+    <div class="row header-content">
+
+        <div class="logo">
+            <a href="/Home/Index">Author</a>
+        </div>
+
+        <nav id="main-nav-wrap">
+            <ul class="main-navigation sf-menu">
+                <li class=""><a href="/Home/Index" title="">Anasayfa</a></li>
+                <li class=""><a href="/Home/Kategoriler" title="">Kategoriler</a></li>
+                @if (ViewData["kullaniciLogin"] == null)
+                {
+                    <li class=""><a href="/Home/KullaniciKayit" title="">Kayıt</a></li>
+                    <li>
+                        <a style="cursor:default" title="" data-toggle="modal" data-target="#exampleModalCenter">Giriş Yap</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="has-children">
+                        <a style="cursor:default" title="">@ViewData["kullaniciLogin"]</a>
+                        <ul class="sub-menu">
+                            <li><a href="/Kullanici/BlogPaylasimlar">Hesaba Git</a></li>
+                            <li><a href="#" id="aCikis" style="cursor:default">Çıkış Yap</a></li>
+
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </nav> <!-- end main-nav-wrap -->
+
+
+
+    </div>
+
+</header> <!-- end header -->
+<!-- masonry
+================================================== -->
+<section id="bricks">
+    @Html.Partial("_ModalGirisYap")
+    <div class="row masonry" ng-app="KategoriOzelList">
+
+        <!-- brick-wrapper -->
+        <div class="bricks-wrapper" ng-controller="KategoriOzelList">
+            @Html.Partial("_KategoriOzelListPartial")
+        </div> <!-- end brick-wrapper -->
+
+    </div> <!-- end row -->
+
+
+
+</section> <!-- end bricks -->

@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewData["Title"] = "GenelBakiye";
+    Layout = "~/Views/Kullanici/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Genel</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Bakiye</span></li>
+        </ol>
+    </div>
+</div>
+
+<input type="hidden" id="sessiondeger" value="@ViewData["deneeme"]" />
+<div class="panel-body">
+    <div class="content-row" ng-app="ProfilGenelBakiye">
+        <div class="bs-example" ng-controller="profilGenelBakiye">
+            <div class="col-md-4">
+                <h4 class="text-center">Hesaptaki Miktar</h4>
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/dolar.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.Dolar}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/bitcoin.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.Bitcoin}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/tl.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.Tl}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="text-center">Bloglara Gelen Miktar</h4>
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/dolar.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.bDolar}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/bitcoin.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.bBitcoin}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/tl.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.bTl}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="text-center">Toplam Miktar</h4>
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/dolar.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.sDolar}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/bitcoin.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.sBitcoin}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+
+                <div class="form-group text-center">
+                    <img src="~/Belgeler/Image/tl.png" class="img-circle" width="100" height="100" />
+                    <br /><br />
+                    <input type="text" value="{{prof.sTl}}" disabled name="KonuAdi" id="KonuAdi" class="form-control text-center" placeholder="Miktar" />
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Kullanicilar";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+<div class="row">
+    
+        <div class="col-md-12">
+
+            <ol class="breadcrumb breadcrumb-arrow">
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Kullanıcılar</a></li>
+                <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Kullanıcılar List</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="content-row">
+            <div class="bs-example" ng-app="KullanicilarList">
+                <table class="table table-hover" ng-controller="kullanicilarListesi">
+                    <thead>
+                        <tr>
+                            <th>Resim</th>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>Email</th>
+                            <th>Telefon</th>
+                            <th>Bakiye</th>
+                            <th>Biyografi</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Şifre</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in kullanici">
+                            <td><img src="~/Belgeler/Image/{{x.Resim}}" class="img-circle" width="50" height="50" /></td>
+                            <td>{{x.Ad}}</td>
+                            <td>{{x.Soyad}}</td>
+                            <td>{{x.Email}}</td>
+                            <td>{{x.Telefon}}</td>
+                            <td>{{x.Bakiye}}</td>
+                            <td>{{x.Biyografi}}</td>
+                            <td>{{x.KullaniciAdi}}</td>
+                            <td>{{x.Sifre}}</td>
+                            <td><a href="/Yonetim/KullaniciDuzenle/{{x.Id}}" class="btn btn-primary">Düzenle</a> </td>
+                            <td><input type="button" name="{{x.Id}}" class="btn btn-danger KullaniciSil" id="KullaniciSil" value="Sil" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+

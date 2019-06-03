@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Konular";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Konular</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Konu Listesi</span></li>
+        </ol>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example">
+            <table class="table table-hover" ng-app="KonuList">
+                <thead>
+                    <tr>
+                        <th>Resim</th>
+                        <th>Konu Adı</th>
+
+                        <th>Hakkında</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="konuList">
+                    <tr ng-repeat="xx in konu">
+                        <td><img src="~/Belgeler/Image/{{xx.Resim}}" class="img-circle" width="50" height="50" /></td>
+                        <td>{{xx.KonuAdi}}</td>
+                        
+                        <td>{{xx.Hakkinda}}</td>
+                        <td><a href="/Yonetim/KonuDuzenle/{{xx.Id}}" class="btn btn-primary">Düzenle</a> </td>
+                        <td><input type="button" name="{{xx.Id}}" class="btn btn-danger KonuSil" id="KonuSil" value="Sil" /></td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+

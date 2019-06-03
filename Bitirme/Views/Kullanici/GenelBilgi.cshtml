@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "GenelBilgi";
+    Layout = "~/Views/Kullanici/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Kullanıcılar</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Kullanıcı Düzenle</span></li>
+        </ol>
+    </div>
+</div>
+
+<input type="hidden" id="sessiondeger" value="@ViewData["deneeme"]" />
+<div class="panel-body">
+    <div class="content-row" ng-app="KullaniciGenel">
+        <div class="bs-example" ng-controller="kullaniciGenel">
+
+            <div class="form-group">
+                <img src="~/Belgeler/Image/{{kullanici.Resim}}" class="img-circle" width="300" height="300" />
+                <br /><br />
+                <input type="file" name="ProfileImage" id="gResim" asp-for="Image" class="form-control" /><br />
+                <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                <span><i>Lütfen jpg,jpeg ya da png formatı kullanın.</i></span>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("", "Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Ad}}" name="Ad" id="gAdi" class="form-control" placeholder="Ad" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Soyad}}" name="Soyad" id="gSoyadi" class="form-control" placeholder="Soyad" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Email}}" name="Email" id="gEmaili" class="form-control" placeholder="Email" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Telefon}}" name="Telefon" id="gTelefonu" class="form-control" placeholder="Telefon" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Bakiye", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" disabled value="{{kullanici.Bakiye}}" name="Bakiye" id="gBakiyes" class="form-control" placeholder="Bakiye" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Biyografi", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <textarea name="Biyografi" id="gBiyografis" class="form-control" placeholder="Biyografi" >
+{{kullanici.Biyografi}}
+</textarea>
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" disabled value="{{kullanici.KullaniciAdi}}" name="KullaniciAdi" id="gKullaniciAdii" class="form-control" placeholder="Biyografi" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Sifre}}" name="Sifre" id="gSifres" class="form-control" placeholder="Şifre" />
+
+                </div>
+            </div><br />
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <button class="btn btn-success pull-right" name="{{kullanici.Id}}" id="btnGenelBilgiDuzenle">Kullanıcı Düzenle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

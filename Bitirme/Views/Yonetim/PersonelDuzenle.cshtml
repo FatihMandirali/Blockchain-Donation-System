@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "PersonelDuzenle";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Personeller</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Personel Düzenle</span></li>
+        </ol>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="content-row" ng-app="PersonelDuzenle">
+        <div class="bs-example" ng-controller="personelDuzenle">
+
+            <input type="hidden" id="sessiondeger" value="denemeSession" />
+
+            <div class="form-group">
+                @Html.Label("", "Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{perso.Ad}}" name="Adi" id="Adi" class="form-control" placeholder="{{perso.Ad}}" />
+
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "Soyadı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{perso.Soyad}}" name="Soyadi" id="Soyadi" class="form-control" placeholder="Soyadı" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "E-Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{perso.Email}}" name="EMail" id="EMail" class="form-control" placeholder="E-Mail" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="tel" value="{{perso.Telefon}}" name="Telefon" id="Telefon" class="form-control"   />
+                </div>
+            </div>  <br />
+            <div class="form-group">
+                @Html.Label("", "Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{perso.KullaniciAdi}}" name="KullaniciAdi" id="KullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <a href="/Yonetim/Personeller" class="btn btn-info pull-right" style="margin-left:10px">Personeller Listesi</a>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

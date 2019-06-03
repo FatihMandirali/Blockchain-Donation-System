@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewData["Title"] = "OnayBekleyenBlogIncele";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Bloglar</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Onay Bekleyen Blog İncele</span></li>
+        </ol>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="content-row" ng-app="BlogOnaylanmamisIncele">
+        <div class="bs-example" ng-controller="blogOnaylanmamisIncele">
+
+            <div class="form-group">
+                <img src="~/Belgeler/Image/{{blog.Resim}}" class="img-circle" width="300" height="300" />
+                <br /><br />
+                <input type="file" name="ProfileImage" id="Resim" asp-for="Image" class="form-control" /><br />
+                <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                <span><i>Lütfen jpg,jpeg ya da png formatı kullanın.</i></span>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("", "Konu Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{blog.KonuAd}}"  name="KonuAdi" id="KonuAdi" class="form-control" placeholder="Konu Adı" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Başlık", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{blog.Baslik}}" name="Baslik" id="Baslik" class="form-control" placeholder="Başlık" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Alt Başlık", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{blog.AltBaslik}}" name="AltBaslik" id="AltBaslik" class="form-control" placeholder="Alt Başlık" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "İçerik", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{blog.Icerik}}" name="Icerik" id="Icerik" class="form-control" placeholder="İçerik" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Tarih", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{blog.Tarih}}"  name="Tarih" id="Tarih" class="form-control" placeholder="Tarih" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{blog.KullaniciAdi}}"  name="KazanilanPara" id="KazanilanPara" class="form-control" placeholder="Kullanıcı Adı" />
+
+                </div>
+            </div><br />
+
+
+
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <a href="/Yonetim/OnayBekleyenBloglar" class="btn btn-info pull-right" style="margin-left:10px">Onaylanmamış Blog Listesi</a>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

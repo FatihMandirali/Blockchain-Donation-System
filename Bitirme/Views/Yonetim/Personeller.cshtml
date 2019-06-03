@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Personeller";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Personeller</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Personeller Listesi</span></li>
+        </ol>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example" >
+            <table class="table table-hover" ng-app="PersonellerList" >
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>E-Mail</th>
+                        <th>Telefon</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="personelList">
+                    <tr ng-repeat="xx in perso">
+                        <td>{{xx.Ad}}</td>
+                        <td>{{xx.Soyad}}</td>
+                        <td>{{xx.Email}}</td>
+                        <td>{{xx.Telefon}}</td>
+                        <td><a href="/Yonetim/PersonelDuzenle/{{xx.KullaniciAdi}}" class="btn btn-primary">Düzenle</a> </td>
+                        <td><input type="button" name="{{xx.KullaniciAdi}}" class="btn btn-danger PersonelSil" id="PersonelSil" value="Sil" /></td>
+
+                    </tr>
+                  
+           
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

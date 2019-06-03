@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "PersonelEkle";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Personeller</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Personel Ekle</span></li>
+        </ol>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example">
+
+           
+
+            <div class="form-group">
+                @Html.Label("", "Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="" name="Adi" id="Adi" class="form-control" placeholder="Adı" />
+
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "Soyadı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="" name="Soyadi" id="Soyadi" class="form-control" placeholder="Soyadı" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "E-Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="" name="EMail" id="EMail" class="form-control" placeholder="E-Mail" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "Tc", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="" name="Tc" id="Tc" class="form-control" placeholder="Tc" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="tel" value="" name="Telefon" id="Telefon" class="form-control" placeholder="(...)... .. .. " />
+                </div>
+            </div>  <br />
+            <div class="form-group">
+                @Html.Label("", "Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="" name="KullaniciAdi" id="KullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                @Html.Label("", "Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="" name="Sifre" id="Sifre" class="form-control" placeholder="Şifre" />
+                </div>
+            </div><br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <a href="/Yonetim/Personeller" class="btn btn-info pull-right" style="margin-left:10px">Personeller Listesi</a>
+                    <button type="button" id="personelEkle" class="btn btn-success pull-right">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>Oluştur
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

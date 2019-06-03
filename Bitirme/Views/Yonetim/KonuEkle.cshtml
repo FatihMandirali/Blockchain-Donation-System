@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "KonuEkle";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Konular</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Konu Ekle</span></li>
+        </ol>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example">
+
+            <form method="post" enctype="multipart/form-data" asp-controller="Yonetim" asp-action="Create">
+
+                <div class="form-group">
+                    <img src="" class="img-circle" width="128" height="128" />
+                    <br /><br />
+                    <input type="file" name="ProfileImage" id="Resim" asp-for="Image" class="form-control" /><br />
+                    <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                    <span><i>Lütfen jpg,jpeg ya da png formatı kullanın.</i></span>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("", "Konu Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" name="KonuAdi" id="KonuAdi" class="form-control" placeholder="Konu Adı" />
+
+                    </div>
+                </div><br />
+
+                <div class="form-group">
+                    @Html.Label("", "Konu Hakkında", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" name="Hakkinda" id="Hakkinda" class="form-control" placeholder="Hakkında" />
+
+                    </div>
+                </div><br />
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                        <a href="/Yonetim/Konular" class="btn btn-info pull-right" style="margin-left:10px">Personeller Listesi</a>
+                        <button class="btn btn-success pull-right" id="btnKonuEkle">Konu Ekle</button>
+                    </div>
+                </div>
+                </form>
+        </div>
+    </div>
+</div>
+

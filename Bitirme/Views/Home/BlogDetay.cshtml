@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewData["Title"] = "Makale Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Makale Detay</title>
+<div ng-app="BlogIncele">
+    <header class="short-header">
+
+
+        <div class="row header-content">
+
+            <div class="logo">
+                <a href="/Home/Index">Author</a>
+            </div>
+
+            <nav id="main-nav-wrap">
+                <ul class="main-navigation sf-menu">
+                    <li class="current"><a href="/Home/Index" title="">Anasayfa</a></li>
+                    <li class=""><a href="/Home/Kategoriler" title="">Kategoriler</a></li>
+
+                    @if (ViewData["kullaniciLogin"] == null)
+                    {
+                        <li class=""><a href="/Home/KullaniciKayit" title="">Kayıt</a></li>
+                        <li>
+                            <a style="cursor:default" title="" data-toggle="modal" data-target="#exampleModalCenter">Giriş Yap</a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="has-children">
+                            <a style="cursor:default" title="">@ViewData["kullaniciLogin"]</a>
+                            <ul class="sub-menu">
+                                <li><a href="/Kullanici/BlogPaylasimlar">Hesaba Git</a></li>
+                                <li><a href="#" id="aCikis" style="cursor:default">Çıkış Yap</a></li>
+
+                            </ul>
+                        </li>
+                    }
+
+                    <li class="has-children" ng-controller="Bitcoin">
+                        <input type="hidden" id="bitcoindeger" value="{{data.amount}}" />
+                        <input type="hidden" id="dolardeger" value="{{data.dolar}}" />
+                        <a style="cursor:default" title="">Finans Bilgisi</a>
+                        <ul class="sub-menu">
+
+                            <li><a href="#" style="cursor:default"><img src="~/Belgeler/Image/bitcoin.png" width="50" height="50" /><br /><br />{{data.amount}}</a></li>
+                            <li><a href="#" style="cursor:default"><img src="~/Belgeler/Image/dolar.png" width="50" height="50" /><br /><br />{{data.dolar}}</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav> <!-- end main-nav-wrap -->
+
+
+
+        </div>
+
+    </header> <!-- end header -->
+    <!-- content
+     ================================================== -->
+    @Html.Partial("_ModalGirisYap")
+    @Html.Partial("_ModalBagisForm")
+    <input type="hidden" id="sessionDeger" value="@ViewData["kullaniciLogin"]" />
+    <section id="content-wrap" class="blog-single" ng-controller="blogIncele">
+        <div class="row">
+            <div class="col-twelve">
+
+                <article class="format-standard">
+
+                    <div class="content-media text-center" >
+                        <div class="post-thumb">
+                            <img src="~/Belgeler/Image/{{blog.Resim}}" />
+                        </div>
+                    </div>
+
+                    <div class="primary-content">
+
+                        <h1 class="page-title">{{blog.Baslik}}</h1>
+
+                        <ul class="entry-meta">
+                            <li class="date">{{blog.Tarih}}</li>
+                            <li class="cat"><a href="">{{blog.KonuAdi}}</a></li>
+                        </ul>
+
+                        <p class="lead">{{blog.AltBaslik}}</p>
+
+                        <p>
+                            {{blog.Icerik}}
+                        </p>
+
+
+
+                        <div class="author-profile">
+                            <img src="~/Belgeler/Image/{{blog.KullaniciResim}}" alt="">
+
+                            <div class="about">
+                                <h4><a href="#">{{blog.KullaniciAdi}}</a></h4>
+                                <h4 class="pull-right text-success">Yapılan Bağış Miktarı : {{blog.CoinSayisi}}</h4>
+
+                                <p>
+                                    {{blog.Biyografi}}
+                                </p>
+
+
+                                <a id="btnBagisYap" class="btn btn-success">Bağış Yap</a>
+                                <a id="btnBegen" class="btn btn-default">Beğen</a>
+
+
+                            </div>
+                        </div> <!-- end author-profile -->
+
+                    </div> <!-- end entry-primary -->
+
+                </article>
+
+
+            </div> <!-- end col-twelve -->
+        </div> <!-- end row -->
+        <br />
+
+        <div class="comments-wrap">
+            <div id="comments" class="row">
+                <div class="col-full">
+
+                    <h3>{{blog.YorumSayisi}} Yorum</h3>
+
+                    <!-- commentlist -->
+                    <ol class="commentlist">
+
+                        <li class="depth-1" ng-repeat="x in blog.liste">
+
+                            <div class="avatar">
+                                <img width="50" height="50" class="avatar" src="~/Belgeler/Image/{{x.KullaniciResim}}" alt="">
+                            </div>
+
+                            <div class="comment-content">
+
+                                <div class="comment-info">
+                                    <cite>{{x.KullaniciAdi}}</cite>
+
+                                    <div class="comment-meta">
+                                        <time class="comment-time" datetime="2014-07-12T23:05">{{x.YorumTarihi}}</time>
+                                    </div>
+                                </div>
+
+                                <div class="comment-text">
+                                    <p>
+                                        {{x.Yorum}}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </li>
+
+
+
+                    </ol> <!-- Commentlist End -->
+                    <!-- respond -->
+                    <div class="respond">
+
+                        <h3>Yorumunu Bırak</h3>
+
+                        <fieldset>
+
+                            <div class="form-field">
+                                <input name="cName" type="text" id="cName" class="full-width" placeholder="Adın Soyadın" value="">
+                            </div>
+
+                            <div class="form-field">
+                                <input name="cEmail" type="text" id="cEmail" class="full-width" placeholder="Mail Adresin" value="">
+
+
+                            </div>
+
+                            <div class="message form-field">
+                                <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Mesajın"></textarea>
+                            </div>
+
+                            <button type="button" id="btnYorumYap" class="submit button-primary">Gönder</button>
+
+                        </fieldset>
+
+                    </div> <!-- Respond End -->
+
+                </div> <!-- end col-full -->
+            </div> <!-- end row comments -->
+        </div> <!-- end comments-wrap -->
+
+    </section> <!-- end content -->
+</div>

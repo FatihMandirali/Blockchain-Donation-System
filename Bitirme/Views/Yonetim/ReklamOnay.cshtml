@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "ReklamOnay";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Reklamlar</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Reklam Onay Listesi</span></li>
+        </ol>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example">
+            <table class="table table-hover" ng-app="ReklamList">
+                <thead>
+                    <tr>
+                        <th>Resim</th>
+                        <th>Tarih</th>
+                        <th>Ad Soyad</th>
+                        <th>Başlık</th>
+                        <th>Onayla</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="reklamList">
+                    <tr ng-repeat="xx in reklam">
+                        <td><img src="~/Belgeler/Image/{{xx.Resim}}" class="img-circle" width="50" height="50" /></td>
+                        <td>{{xx.Tarih}}</td>
+
+                        <td>{{xx.AdSoyad}}</td>
+                        <td>{{xx.Baslik}}</td>
+                        <td><input type="button" name="{{xx.Id}}" class="btn btn-success ReklamOnayla" id="ReklamOnayla" value="Onayla" /> </td>
+                        <td><input type="button" name="{{xx.Id}}" class="btn btn-danger ReklamSil" id="ReklamSil" value="Sil" /></td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+

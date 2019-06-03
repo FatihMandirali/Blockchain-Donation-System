@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "YapilanBagislar";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Bağış</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Yapılan Bağışlar</span></li>
+        </ol>
+    </div>
+</div>
+
+<div class="container">
+    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#yapilanBagiss">Genel Durum</a>
+</div>
+
+<div class="panel-body" ng-app="YoneticiBagisListt">
+    <div class="content-row">
+        <div class="bs-example">
+            @Html.Partial("_YapilanBagisGenel")
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Bağış Yapılan Makale</th>
+                        <th>Bağış Yapan Kişi</th>
+                        <th>Yapılan Bağış Miktarı</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="yoneticiBagisListt">
+                    <tr ng-repeat="xx in yoneticiBagis">
+                        <td><a href="/Kullanici/BagisMakaleIncele/{{xx.receiver}}">{{xx.receiver}}</a></td>
+                        <td>{{xx.sender}}</td>
+                        <td>{{xx.amount}}</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+

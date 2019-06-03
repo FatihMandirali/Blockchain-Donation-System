@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewData["Title"] = "KullaniciDuzenle";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Kullanıcılar</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Kullanıcı Düzenle</span></li>
+        </ol>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="content-row" ng-app="KullaniciDuzenle">
+        <div class="bs-example" ng-controller="kullaniciDuzenle">
+
+            <div class="form-group">
+                <img src="~/Belgeler/Image/{{kullanici.Resim}}" class="img-circle" width="300" height="300" />
+                <br /><br />
+                <input type="file" name="ProfileImage" id="Resim" asp-for="Image" class="form-control" /><br />
+                <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                <span><i>Lütfen jpg,jpeg ya da png formatı kullanın.</i></span>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("", "Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Ad}}" name="Ad" id="Adi" class="form-control" placeholder="Ad" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Soyad}}" name="Soyad" id="Soyadi" class="form-control" placeholder="Soyad" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Email}}" name="Email" id="Emaili" class="form-control" placeholder="Email" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Telefon}}" name="Telefon" id="Telefonu" class="form-control" placeholder="Telefon" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Bakiye", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Bakiye}}" name="Bakiye" id="Bakiyes" class="form-control" placeholder="Bakiye" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Biyografi", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Biyografi}}" name="Biyografi" id="Biyografis" class="form-control" placeholder="Biyografi" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.KullaniciAdi}}" name="KullaniciAdi" id="KullaniciAdii" class="form-control" placeholder="Biyografi" />
+
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" value="{{kullanici.Sifre}}" name="Sifre" id="Sifres" class="form-control" placeholder="Şifre" />
+
+                </div>
+            </div><br />
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <a href="/Yonetim/Kullanicilar" class="btn btn-info pull-right" style="margin-left:10px">Kullanıcı Listesi</a>
+                    <button class="btn btn-success pull-right" name="{{kullanici.Id}}" id="btnKullaniciDuzenle">Kullanıcı Düzenle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

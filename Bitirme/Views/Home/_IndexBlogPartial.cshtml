@@ -1,0 +1,27 @@
+﻿<article class="brick entry format-standard " ng-repeat="x in Blog">
+
+
+    <div class="entry-thumb" ng-if="x.Resim !='bos.png'">
+        <a href="/Home/BlogDetay/{{x.Slug}}" class="thumb-link">
+            <img src="~/Belgeler/Image/{{x.Resim}}" alt="ferris wheel">
+        </a>
+    </div>
+
+    <div class="entry-text">
+        <div class="entry-header">
+
+            <div class="entry-meta">
+                <span class="cat-links">
+                    <a href="#">{{x.KonuAdi}}</a>
+                </span>
+            </div>
+
+            <h1 class="entry-title"><a href="/Home/BlogDetay/{{x.Slug}}" name="{{x.Slug}}">{{x.Baslik}}</a></h1>
+
+        </div>
+        <div class="entry-excerpt">
+            {{x.AltBaslik}}
+        </div>
+    </div>
+
+</article>

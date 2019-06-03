@@ -1,0 +1,24 @@
+﻿<article class="brick entry format-standard " ng-repeat="x in Kategori">
+
+
+    <div class="entry-thumb" ng-if="x.Resim !='bos.png'">
+      
+        <img src="~/Belgeler/Image/{{x.Resim}}" alt="ferris wheel">
+
+    </div>
+
+    <div class="entry-text">
+        <div class="entry-header">
+            <a href="/Home/KategoriOzel/{{x.Slug}}" class="thumb-link">
+                <h1 class="entry-title">{{x.KonuAdi}}</h1>
+                </a>{{x.Slug}}
+        </div>
+        <div class="entry-excerpt">
+            {{x.Hakkinda}}
+        </div>
+
+    </div>
+    <!--  <div class="pull-right">
+          <input type="button" name="{{x.Id}}" class="btn btn-success" value="Paylaşım Yapan Kullanıcılar" />
+      </div>-->
+</article>

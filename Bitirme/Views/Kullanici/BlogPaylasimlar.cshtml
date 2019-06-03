@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "BlogPaylasimlar";
+    Layout = "~/Views/Kullanici/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Paylaşımlar</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Paylaşımlar Listesi</span></li>
+        </ol>
+    </div>
+</div>
+
+<input type="hidden" id="sessiondeger" value="@ViewData["deneeme"]" />
+
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example">
+            <table class="table table-hover" ng-app="BlogPaylasimList">
+                <thead>
+                    <tr>
+                        <th>Resim</th>
+                        <th>Konu Adı</th>
+                        <th>Başlık</th>
+                        <th>Alt Başlık</th>
+                        <th>İçerik</th>
+                        <th>Tarih</th>
+                        <th>Kazanılan Para</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="blogpaylasimList">
+                    <tr ng-repeat="xx in blogPay">
+                        <td><img src="~/Belgeler/Image/{{xx.Resim}}" class="img-circle" width="50" height="50" /></td>
+                        <td>{{xx.KonuAdi}}</td>
+                        <td>{{xx.Baslik}}</td>
+                        <td>{{xx.AltBaslik}}</td>
+                        <td>{{xx.Icerik}}</td>
+                        <td>{{xx.Tarih}}</td>
+                        <td>{{xx.KazanilanPara}}</td>
+                        <td><a href="/Kullanici/BlogPaylasimlarIncele/{{xx.Id}}" class="btn btn-primary">Düzenle</a> </td>
+                        <td><input type="button" name="{{xx.Id}}" class="btn btn-danger makaleSil" id="makaleSil" value="Sil" /></td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

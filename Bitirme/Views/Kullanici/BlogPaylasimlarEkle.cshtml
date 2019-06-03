@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "BlogPaylasimlarEkle";
+    Layout = "~/Views/Kullanici/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Paylaşım</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Paylaşım Ekle</span></li>
+        </ol>
+    </div>
+</div>
+<input type="hidden" id="sessiondeger" value="@ViewData["deneeme"]" />
+<div class="panel-body">
+    <div class="content-row" ng-app="MakaleEkle">
+        <div class="bs-example" >
+
+            <div class="form-group">
+                <img src="" class="img-circle" width="300" height="300" />
+                <br /><br />
+                <input type="file" name="ProfileImage" id="Resim" asp-for="Image" class="form-control" /><br />
+                <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                <span><i>Lütfen jpg,jpeg ya da png formatı kullanın.</i></span>
+            </div>
+
+            <div class="form-group" ng-controller="makaleKonular">
+                @Html.Label("", "Konu Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select name="KonuAdi" id="KonuAdi" class="form-control">
+
+                        <option ng-repeat="x in konu" value="{{x.Id}}">{{x.KonuAdi}}</option>
+                    </select>
+                </div>
+            </div><br />
+
+            <div class="form-group">
+                @Html.Label("", "Başlık", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text"  name="Baslik" id="Baslik" class="form-control" placeholder="Başlık" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "Alt Başlık", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text"  name="AltBaslik" id="AltBaslik" class="form-control" placeholder="Alt Başlık" />
+
+                </div>
+            </div><br />
+
+
+            <div class="form-group">
+                @Html.Label("", "İçerik", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text"  name="Icerik" id="Icerik" class="form-control" placeholder="İçerik" />
+
+                </div>
+            </div><br />
+
+
+          
+
+         
+
+
+
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="margin-top:20px;">
+                    <a href="/Kullanicilar/BlogPaylasimlar" class="btn btn-info pull-right" style="margin-left:10px">Makale Listesi</a>
+                    <button class="btn btn-success pull-right"  id="btnMakaleEkle">Makale Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

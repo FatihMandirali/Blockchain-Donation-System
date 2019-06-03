@@ -1,74 +1,167 @@
 ﻿<!DOCTYPE html>
-<html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Bitirme</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+   
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/Belgeler/Front/build/css/bootstrap.css" rel="stylesheet" />
+    <!-- CSS
+    ================================================== -->
+
+    <link href="~/Belgeler/Front/css/base.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Belgeler/Front/css/vendor.css">
+    <link rel="stylesheet" href="~/Belgeler/Front/css/main4.css">
+
+
+    <!-- script
+    ================================================== -->
+    <script src="~/Belgeler/Front/js/modernizr.js"></script>
+    <script src="~/Belgeler/Front/js/pace.min.js"></script>
+
+
+
+
+    <!-- favicons
+     ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="~/Belgeler/Front/img/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 </head>
+
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Bitirme</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <partial name="_CookieConsentPartial" />
+    @RenderBody()
+    <!-- footer
+    ================================================== -->
+    <footer>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - Bitirme</p>
-        </footer>
+        <div class="footer-main">
+
+            <div class="row">
+
+                <div class="col-four tab-full mob-full footer-info">
+
+                    <h4>Hakkında</h4>
+
+                    <p>
+                        Bilgilerinizi paylaşarak hem insanlara yardımcı olun hemde paranızı kazanarak emeğinizin karşılığını alın.
+                    </p>
+
+                </div> <!-- end footer-info -->
+
+                <div class="col-two tab-1-3 mob-1-2 site-links">
+
+                    <h4>Site Haritası</h4>
+
+                    <ul>
+                        <li class="current"><a href="/Home/Index" title="">Anasayfa</a></li>
+                        <li class=""><a href="/Home/Kategoriler" title="">Kategoriler</a></li>
+
+                        @if (ViewData["kullaniciLogin"] == null)
+                        {
+                            <li class=""><a href="/Home/KullaniciKayit" title="">Kayıt</a></li>
+                            <li>
+                                <a style="cursor:default" title="" data-toggle="modal" data-target="#exampleModalCenter">Giriş Yap</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="has-children">
+                                <a style="cursor:default" title=""><a href="/Kullanici/BlogPaylasimlar">@ViewData["kullaniciLogin"]</a></a>
+
+                            </li>
+                        }
+                    </ul>
+
+                </div> <!-- end site-links -->
+
+                <div class="col-two tab-1-3 mob-1-2 social-links">
+
+                    <h4>Sosyal Medya</h4>
+
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Dribbble</a></li>
+                        <li><a href="#">Google+</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+
+                </div> <!-- end social links -->
+
+                <div class="col-four tab-1-3 mob-full footer-subscribe">
+
+                    <h4>İletişim </h4>
+
+                    <p>Detaylı bilgi için 0555 555 55 55 hatlı numaradan ulaşabilirsiniz.</p>
+
+                    <div class="subscribe-form">
+
+
+
+                    </div>
+
+                </div> <!-- end subscribe -->
+
+            </div> <!-- end row -->
+
+        </div> <!-- end footer-main -->
+
+        <div class="footer-bottom">
+            <div class="row">
+
+                <div class="col-twelve">
+                    <div class="copyright">
+                        <span>© Copyright 2019</span>
+                        <span>Design by <a href="#">FM</a></span>
+                    </div>
+
+                    <!--   <div id="go-top">
+           <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon icon-arrow-up"></i></a>
+       </div>-->
+                </div>
+
+            </div>
+        </div> <!-- end footer-bottom -->
+
+    </footer>
+
+    <div id="preloader">
+        <div id="loader"></div>
     </div>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+    <!--    Java Script
+       ================================================== -->
+    <script src="~/Belgeler/Front/js/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="~/Belgeler/Front/js/plugins.js"></script>
+    <script src="~/Belgeler/Front/js/jquery.appear.js"></script>
+    <script src="~/Belgeler/Front/js/main.js"></script>
 
-    @RenderSection("Scripts", required: false)
 </body>
+
 </html>
+<script src="~/Belgeler/Front/build/js/BlogList1.js"></script>
+<script src="~/Belgeler/Front/build/js/BlogIncele5.js"></script>
+<script src="~/Belgeler/Front/build/js/BlogYorumYap1.js"></script>
+<script src="~/Belgeler/Front/build/js/KategolerilerList.js"></script>
+<script src="~/Belgeler/Front/build/js/KategoriOzelList.js"></script>
+<script src="~/Belgeler/Front/build/js/KullaniciLogin.js"></script>
+<script src="~/Belgeler/Front/build/js/BagisYap6.js"></script>
+<script src="~/Belgeler/Front/build/js/KullaniciCikisYap.js"></script>
+<script src="~/Belgeler/Front/build/js/KayitOl.js"></script>
+<script src="~/Belgeler/Front/build/js/Begen1.js"></script>

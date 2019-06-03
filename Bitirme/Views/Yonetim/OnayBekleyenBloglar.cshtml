@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "OnayBekleyenBloglar";
+    Layout = "~/Views/Yonetim/Index.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <ol class="breadcrumb breadcrumb-arrow">
+            <li><a href="#"><i class="glyphicon glyphicon-home"></i> Anasayfa</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Bloglar</a></li>
+            <li class="active"><span><i class="glyphicon glyphicon-calendar"></i> Onay Bekleyen Blog List</span></li>
+        </ol>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="content-row">
+        <div class="bs-example" ng-app="OnayBekleyenBlogList">
+            <table class="table table-hover" ng-controller="OnayBekleyenBlogList">
+                <thead>
+                    <tr>
+                        <th>Resim</th>
+                        <th>Konu Adı</th>
+                        <th>Başlık</th>
+                        <th>Alt Başlık</th>
+                        <th>İçerik</th>
+                        <th>Tarih</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>İncele</th>
+                        <th>Onayla</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in bekleyenBlog">
+                        <td><img src="~/Belgeler/Image/{{x.Resim}}" class="img-circle" width="50" height="50" /></td>
+                        <td>{{x.KonuAd}}</td>
+                        <td>{{x.Baslik}}</td>
+                        <td>{{x.AltBaslik}}</td>
+                        <td>{{x.Icerik}}</td>
+                        <td>{{x.Tarih}}</td>
+                        <td>{{x.KullaniciAdi}}</td>
+                        <td><a href="/Yonetim/OnayBekleyenBlogIncele/{{x.Id}}" class="btn btn-primary">İncele</a> </td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-success BlogOnayla" id="BlogOnayla" value="Onayla" /></td>
+                        <td><input type="button" name="{{x.Id}}" class="btn btn-danger BlogSil" id="BlogSil" value="Sil" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
